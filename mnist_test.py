@@ -28,7 +28,7 @@ loss, acc = model.evaluate(x_test, y_test)
 print("\n loss: ", loss)
 print(" acc: ", acc)
 
-# model=load_model('minit_model.pb')
+model=load_model('minit_model.pb')
 predit = model.predict(x_test[1].reshape(-1, 784))
 print("predit: ", predit)
 print("x_test[1]: ", predit.argmax())

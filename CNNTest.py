@@ -1,5 +1,4 @@
 import numpy as np
-
 np.random.seed(1337)
 from keras.datasets import mnist
 from keras.utils import np_utils
@@ -19,10 +18,10 @@ model.add(Convolution2D(
 ))
 model.add(Activation('relu'))
 model.add(MaxPool2D(
-    pool_size=(2, 2), strides=(2, 2), padding='same'
+    pool_size=(2, 2), padding='same'
 ))
 model.add(Convolution2D(
-    filters=32, kernel_size=(5, 5), padding='same'
+    filters=64, kernel_size=(5, 5), padding='same'
 ))
 model.add(MaxPool2D(
     strides=(2, 2), padding='same'
@@ -35,7 +34,7 @@ model.add(Activation('softmax'))
 adam = Adam()
 model.compile(optimizer=adam, loss='categorical_crossentropy', metrics=['accuracy'])
 print("Train...")
-model.fit(X_train, y_train, epochs=1, batch_size=32, )
+model.fit(X_train, y_train, epochs=2, batch_size=32, )
 print("Test...")
 loss, accuracy = model.evaluate(X_test, y_test)
 print("loss : ", loss)
